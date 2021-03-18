@@ -1,0 +1,65 @@
+version: '3.7'
+services:
+    postgres:
+        image: postgres:12-alpine
+        environment:
+            POSTGRES_USER: airflow
+            POSTGRES_PASSWORD: airflow
+            POSTGRES_DB: airflow
+
+    spark:
+        build:
+            context: images
+            dockerfile: Spark.dockerfile
+        ports:
+            - 8000:8080
+        volumes:
+            - ./credentials:/credentials
+        environment:
+            - GOOGLE_APPLICATION_CREDENTIALS=/credentials/gcloud_credentials.json
+        command: start-master.sh
+
+    spark-worker:
+        build:
+            context: images
+            dockerfile: Spark.dockerfile
+        depends_on:
+            - spark
+        environment:
+            - SPARK_MASTER_URL=spark://spark:7077
+            - SPARK_WORKER_MEMORY=6G
+            - SPARK_WORKER_CORES=6
+            - GOOGLE_APPLICATION_CREDENTIALS=/credentials/gcloud_credentials.json
+        volumes:
+            - ./credentials:/credentials
+        command: bash -c "start-slave.sh $${SPARK_MASTER_URL}"
+
+    airflow:
+        build:
+            context: images
+            dockerfile: Airflow.dockerfile
+        depends_on:
+            - postgres
+        environment:
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+            - AIRFLOW__CORE__LOAD_EXAMPLES=False
+            - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+            - AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT=google-cloud-platform://admin:admin@?extra__google_cloud_platform__key_path=%2Fcredentials%2Fgcloud_credentials.json
+            - AIRFLOW_CONN_SPARK_DEFAULT=spark://admin:admin@spark%3A%2F%2Fspark:7077
+        volumes:
+            - ./credentials:/credentials
+            - ./app:/opt/airflow/dags/app
+        ports:
+            - 8080:8080
+        command: >
+            bash -c "
+                airflow db upgrade;
+                airflow users create \
+                    --role Admin \
+                    --username admin \
+                    --password admin \
+                    --firstname Welbert \
+                    --lastname Castro \
+                    --email welberthime@gmail.com;
+                rm $${AIRFLOW_HOME}/*.pid $${AIRFLOW_HOME}/*.err;
+                airflow webserver -D & airflow scheduler"
