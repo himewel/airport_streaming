@@ -13,7 +13,9 @@ RUN mkdir -p /usr/share/man/man1 \
     && apt-get clean \
     && rm -rf -- /var/lib/apt/lists/*
 
-RUN pip3 install -q --no-cache geopy==2.1.0
+COPY requirements.txt .
+
+RUN pip3 install --quiet --no-cache-dir --requirement requirements.txt
 
 COPY spark-3.0.1-bin-hadoop3.2.tgz .
 COPY gcs-connector-hadoop3-2.2.0-shaded.jar .

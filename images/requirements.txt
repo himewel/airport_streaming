@@ -1,0 +1,8 @@
+apache-airflow[apache.spark,google,postgres,mysql,ssh,kubernetes]==2.0.1
+python-dotenv==0.15.0
+pyspark==3.0.1
+fsspec==0.8.5
+gcsfs==0.7.1
+psycopg2-binary==2.8.6
+paramiko==2.7.2
+geopy==2.1.0
