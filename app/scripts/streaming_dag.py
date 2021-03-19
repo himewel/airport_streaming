@@ -3,13 +3,10 @@ import os
 from datetime import datetime
 
 from airflow.models import DAG
-from airflow.providers.apache.spark.operators.spark_submit import (
-    SparkSubmitOperator,
-)
+from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
 import yaml
 from dotenv import load_dotenv
-
 
 load_dotenv()
 
@@ -19,7 +16,7 @@ project_path = f"{airflow_home}/dags/app/scripts"
 
 dim_tables = [
     "dim_digito_identificador",
-    "dim_equipamentos",
+    "dim_aeronaves",
     "dim_empresas",
 ]
 
@@ -57,7 +54,7 @@ with DAG(
         total_executor_cores=1,
         executor_cores=1,
         num_executors=1,
-        executor_memory="1500M",
+        executor_memory="2G",
         application_args=[
             f"gs://{bucket_name}/raw_data/**/*.csv",
             f"gs://{bucket_name}/dw/fact_aircraft_moviments/",

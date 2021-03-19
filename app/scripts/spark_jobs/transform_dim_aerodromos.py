@@ -9,12 +9,11 @@ import logging
 from sys import argv
 
 from geopy.geocoders import Nominatim
-from pyspark.sql import SQLContext, functions as sf
-
-from get_schema import get_raw_schema, get_column_names, get_allow_substrings
+from get_schema import get_allow_substrings, get_column_names, get_raw_schema
 from get_spark_context import get_spark_context
 from normalize_columns import normalize_columns
-
+from pyspark.sql import SQLContext
+from pyspark.sql import functions as sf
 
 logging.basicConfig(level=logging.INFO)
 _PARTITIONS = 1

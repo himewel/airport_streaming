@@ -1,18 +1,18 @@
 dim_aerodromos:
-    id_arrive_airfield: id_aerodromo_origem:id
-    id_take_off_airfield: id_aerodromo_destino:id
+    id_aerodromo_decolagem: id_aerodromo_origem:id
+    id_aerodromo_pouso: id_aerodromo_destino:id
 
 dim_digito_identificador:
-    id_identifier_digit: id_di:id
+    id_digito_identificador: id_di:id
 
-dim_empresas:
-    id_firm: id_empresa:id
+dim_companhias:
+    id_companhia: id_empresa:id
 
-dim_equipamentos:
-    id_equipment: id_equipamento:id
+dim_aeronaves:
+    id_aeronave: id_equipamento:id
 
 dim_dates:
-    id_arrive_date: data_chegada_real:data
-    id_take_off_date: data_partida_real:data
-    id_date: data_referencia:data
-    id_system_date: data_sistema:data
+    id_data_decolagem: data_partida_real:data
+    id_data_pouso: data_chegada_real:data
+    id_data_referencia: data_referencia:data
+    id_data_sistema: data_sistema:data

@@ -3,7 +3,6 @@ from fnmatch import fnmatch
 
 from pyspark.sql import functions as sf
 
-
 _PARTITIONS = 1
 _PREFIX_DTYPES = {
     "int": ["id"],

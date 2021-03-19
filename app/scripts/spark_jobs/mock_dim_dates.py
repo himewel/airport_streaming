@@ -9,11 +9,10 @@
 import logging
 from sys import argv
 
-from pyspark.sql import Window, SQLContext, functions as sf
-
 from get_spark_context import get_spark_context
 from normalize_columns import normalize_columns
-
+from pyspark.sql import SQLContext, Window
+from pyspark.sql import functions as sf
 
 logging.basicConfig(level=logging.INFO)
 _PARTITIONS = 1
@@ -27,10 +26,10 @@ sql_context = SQLContext.getOrCreate(spark_context)
 
 try:
     old_df = sql_context.read.csv(storage_filepath)
-    logging.info("Dim dates is already there")
+    logging.info("dim_datas is already there")
     quit()
 except Exception:
-    logging.info("Creating dim dates")
+    logging.info("Creating dim_datas")
 
 dates_df = sql_context.sql(
     f"""
@@ -98,7 +97,7 @@ dates_df.show()
 dates_df.printSchema()
 
 dates_df.coalesce(_PARTITIONS).write.save(
-    f"{storage_filepath}/dim_dates",
+    f"{storage_filepath}/dim_datas",
     header="true",
     format="csv",
     mode="overwrite",

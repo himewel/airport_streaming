@@ -1,5 +1,4 @@
-from pyspark import SparkContext, SparkConf
-
+from pyspark import SparkConf, SparkContext
 
 gcp_credentials = "/credentials/gcloud_credentials.json"
 hadoop_classpath = "/opt/gcs-connector-hadoop3-latest.jar"

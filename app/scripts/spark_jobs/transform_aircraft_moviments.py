@@ -3,12 +3,11 @@ import logging
 import time
 from sys import argv
 
-from pyspark.sql import SQLContext, functions as sf
-
-from get_schema import get_raw_schema, get_schema, get_column_names
+from get_schema import get_column_names, get_raw_schema, get_schema
 from get_spark_context import get_spark_context
-from normalize_columns import normalize_columns, expand_column_name
-
+from normalize_columns import expand_column_name, normalize_columns
+from pyspark.sql import SQLContext
+from pyspark.sql import functions as sf
 
 logging.basicConfig(level=logging.INFO)
 _PARTITIONS = 1
@@ -88,7 +87,7 @@ raw_df.createOrReplaceTempView("raw_df")
 raw_df.printSchema()
 
 # filter columns
-allow_columns = key_list + get_column_names("fact_aircraft_moviments")
+allow_columns = key_list + get_column_names("fact_voos")
 allow_columns = [expand_column_name(column) for column in allow_columns]
 current_df = raw_df.coalesce(_PARTITIONS).select(*allow_columns)
 
@@ -101,7 +100,7 @@ query = (
         header="true",
         format="csv",
         mode="append",
-        checkpointLocation="gs://anac_data_lake/checkpoint/fact_aircraft_moviments",
+        checkpointLocation="gs://anac_data_lake/checkpoint/fact_voos",
         failOnDataLoss="false",
     )
 )

@@ -1,21 +1,15 @@
 import fnmatch
 import logging
 
+from normalize_columns import expand_column_name, get_column_dtype, remove_substring
 from pyspark.sql.types import (
-    StringType,
+    DateType,
     FloatType,
     IntegerType,
-    DateType,
-    StructType,
+    StringType,
     StructField,
+    StructType,
 )
-
-from normalize_columns import (
-    get_column_dtype,
-    remove_substring,
-    expand_column_name,
-)
-
 
 _COLUMN_LIST = [
     "id_basica",
@@ -132,9 +126,9 @@ _COLUMN_LIST = [
 
 
 _COLUMN_PATTERNS = {
-    "dim_dates": {"allow_substrings": ["*referencia"]},
+    "dim_datas": {"allow_substrings": ["*referencia"]},
     "dim_digito_identificador": {"allow_substrings": ["*di"]},
-    "dim_equipamentos": {"allow_substrings": ["*equipamento*"]},
+    "dim_aeronaves": {"allow_substrings": ["*equipamento*"]},
     "dim_empresas": {
         "allow_substrings": ["*empresa*"],
         "deny_substrings": ["*origem*", "*destino*"],
@@ -151,7 +145,7 @@ _COLUMN_PATTERNS = {
         "allow_substrings": ["*aerodromo*", "*destino*"],
         "deny_substrings": ["*origem*", "*escala*"],
     },
-    "fact_aircraft_moviments": {
+    "fact_voos": {
         "allow_substrings": ["*"],
         "deny_substrings": [
             "*empresa*",
