@@ -12,9 +12,7 @@ repos:
   hooks:
   - id: isort
     args:
-    - --show-files
-    - --only-modified
-    - --profile black
+    - .
 
 # black
 - repo: https://github.com/ambv/black
