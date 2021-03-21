@@ -1,0 +1,49 @@
+- columns:
+  - column_name: Assentos_ofertados
+    type: FLOAT
+    verbose_name: Assentos Ofertados
+  - column_name: Cidade_destino
+    type: STRING
+    verbose_name: Cidade Destino
+  - column_name: Cidade_origem
+    type: STRING
+    verbose_name: Cidade Origem
+  - column_name: Pais_destino
+    type: STRING
+    verbose_name: "Pa\xEDs Destino"
+  - column_name: Tipo_linha
+    type: STRING
+    verbose_name: Tipo Linha
+  - column_name: Pais_origem
+    type: STRING
+    verbose_name: "Pa\xEDs Origem"
+  - column_name: Decolagem
+    is_dttm: true
+    type: DATE
+  - column_name: Pouso
+    is_dttm: true
+    type: DATE
+  - column_name: Aeronave
+    type: STRING
+  - column_name: Companhia
+    type: STRING
+  metrics:
+  - expression: count(*)
+    extra: '{"warning_markdown":null}'
+    metric_name: count
+  schema: anac_views
+  sql: "SELECT \n  -- fact_voos.numero_etapa,\n  dim_companhias.nome as Companhia,\n\
+    \  fact_voos.descricao_modelo as Aeronave,\n  fact_voos.descricao_natureza_tipo_linha\
+    \ as Tipo_linha,\n  fact_voos.numero_assentos_ofertados as Assentos_ofertados,\n\
+    \  dim_datas_arrive.data as Decolagem,\n  dim_aerodromos_arrive.nome_municipio\
+    \ as Cidade_origem,\n  dim_aerodromos_arrive.nome_pais as Pais_origem,\n  dim_datas_take_off.data\
+    \ as Pouso,\n  dim_aerodromos_take_off.nome_municipio as Cidade_destino,\n  dim_aerodromos_arrive.nome_pais\
+    \ as Pais_destino,\nFROM `anac_views.fact_voos` as fact_voos\nJOIN `anac_views.dim_datas`\
+    \ as dim_datas_arrive\n  ON fact_voos.id_arrive_date = dim_datas_arrive.id\nJOIN\
+    \ `anac_views.dim_datas` as dim_datas_take_off\n  ON fact_voos.id_take_off_date\
+    \ = dim_datas_take_off.id\nJOIN `anac_views.dim_companhias` as dim_companhias\n\
+    \  ON fact_voos.id_firm = dim_companhias.id\nJOIN `anac_views.dim_aerodromos`\
+    \ as dim_aerodromos_arrive\n  ON fact_voos.id_arrive_airfield = dim_aerodromos_arrive.id\n\
+    JOIN `anac_views.dim_aerodromos` as dim_aerodromos_take_off\n  ON fact_voos.id_take_off_airfield\
+    \ = dim_aerodromos_take_off.id"
+  table_name: Query anac_dw.fact_voos relations 03/20/2021 19:30:11

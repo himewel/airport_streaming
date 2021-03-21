@@ -1,0 +1,36 @@
+- columns:
+  - column_name: data
+    is_dttm: true
+    type: DATE
+  - column_name: numero_ano_mes
+    type: FLOAT64
+  - column_name: numero_semana
+    type: FLOAT64
+  - column_name: numero_dia
+    type: FLOAT64
+  - column_name: numero_ano
+    type: FLOAT64
+  - column_name: numero_semestre
+    type: FLOAT64
+  - column_name: numero_trimestre
+    type: FLOAT64
+  - column_name: numero_mes
+    type: FLOAT64
+  - column_name: id
+    type: INT64
+  - column_name: nome_dia_semana
+    type: STRING
+  - column_name: nome_semestre
+    type: STRING
+  - column_name: nome_trimestre
+    type: STRING
+  - column_name: nome_mes
+    type: STRING
+  main_dttm_col: data
+  metrics:
+  - expression: COUNT(*)
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+  schema: anac_views
+  table_name: dim_datas

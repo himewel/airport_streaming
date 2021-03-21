@@ -1,15 +1,21 @@
 version: '3.7'
 services:
-    postgres:
+    airflow_postgres:
         image: postgres:12-alpine
         environment:
             POSTGRES_USER: airflow
             POSTGRES_PASSWORD: airflow
             POSTGRES_DB: airflow
+    superset_postgres:
+        image: postgres:12-alpine
+        environment:
+            POSTGRES_USER: superset
+            POSTGRES_PASSWORD: superset
+            POSTGRES_DB: superset
 
     spark:
         build:
-            context: images
+            context: docker
             dockerfile: Spark.dockerfile
         ports:
             - 8000:8080
@@ -21,7 +27,7 @@ services:
 
     spark-worker:
         build:
-            context: images
+            context: docker
             dockerfile: Spark.dockerfile
         depends_on:
             - spark
@@ -36,10 +42,10 @@ services:
 
     airflow:
         build:
-            context: images
+            context: docker
             dockerfile: Airflow.dockerfile
         depends_on:
-            - postgres
+            - airflow_postgres
         environment:
             - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
             - AIRFLOW__CORE__LOAD_EXAMPLES=False
@@ -63,3 +69,41 @@ services:
                     --email welberthime@gmail.com;
                 rm $${AIRFLOW_HOME}/*.pid $${AIRFLOW_HOME}/*.err;
                 airflow webserver -D & airflow scheduler"
+
+    superset:
+        build:
+            context: docker
+            dockerfile: Superset.dockerfile
+        depends_on:
+            - superset_postgres
+        ports:
+            - 8088:8088
+        volumes:
+            - ./credentials:/opt/superset/credentials
+            - ./app/superset:/opt/superset/
+        environment:
+            - SUPERSET_HOME=/opt/superset
+            - SUPERSET_CONFIG_PATH=/opt/superset/superset_config.py
+            - PYTHONPATH=/opt/superset/
+            - GOOGLE_APPLICATION_CREDENTIALS=/opt/superset/credentials/gcloud_credentials.json
+        command: >
+            bash -c "
+                superset fab create-admin \
+                   --username admin \
+                   --firstname Superset \
+                   --lastname Admin \
+                   --email admin@superset.com \
+                   --password admin;
+                superset db upgrade;
+                superset init;
+                gunicorn \
+                    --bind "0.0.0.0:8088" \
+                    --access-logfile '-' \
+                    --error-logfile '-' \
+                    --workers 1 \
+                    --worker-class gthread \
+                    --threads 20 \
+                    --timeout 60 \
+                    --limit-request-line 0 \
+                    --limit-request-field_size 0 \
+                    \"superset.app:create_app()\""

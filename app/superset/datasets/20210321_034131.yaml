@@ -1,0 +1,18 @@
+- columns:
+  - column_name: id
+    type: INT64
+  - column_name: sigla_iata
+    type: STRING
+  - column_name: sigla_icao
+    type: STRING
+  - column_name: descricao_tipo
+    type: STRING
+  - column_name: nome
+    type: STRING
+  metrics:
+  - expression: COUNT(*)
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+  schema: anac_views
+  table_name: dim_companhias
