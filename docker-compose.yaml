@@ -6,6 +6,7 @@ services:
             POSTGRES_USER: airflow
             POSTGRES_PASSWORD: airflow
             POSTGRES_DB: airflow
+
     superset_postgres:
         image: postgres:12-alpine
         environment:
@@ -47,7 +48,7 @@ services:
         depends_on:
             - airflow_postgres
         environment:
-            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow_postgres:5432/airflow
             - AIRFLOW__CORE__LOAD_EXAMPLES=False
             - AIRFLOW__CORE__EXECUTOR=LocalExecutor
             - AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT=google-cloud-platform://admin:admin@?extra__google_cloud_platform__key_path=%2Fcredentials%2Fgcloud_credentials.json
