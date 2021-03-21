@@ -6,6 +6,7 @@
 #   - storage_filepath: filepath in storage to fill the output
 
 import logging
+import os
 from sys import argv
 
 import reverse_geocoder as rg
@@ -18,6 +19,7 @@ from pyspark.sql import functions as sf
 
 logging.basicConfig(level=logging.INFO)
 _PARTITIONS = 1
+bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
 
 raw_source = str(argv[1])
 storage_filepath = str(argv[2])
@@ -107,7 +109,7 @@ query = (
         f"{storage_filepath}/dim_aerodromos/",
         header="true",
         format="csv",
-        checkpointLocation="gs://anac_data_lake/checkpoint/dim_aerodromos",
+        checkpointLocation=f"gs://{bucket_name}/checkpoint/dim_aerodromos",
         mode="complete",
         failOnDataLoss="false",
     )

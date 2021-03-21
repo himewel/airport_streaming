@@ -21,5 +21,6 @@ terraform.rc
 __pycache__/
 
 credentials/
-app/scripts/data/raw/*.txt
-app/scripts/data/tmp/*.zip
+*.txt
+*.zip
+superset/.env

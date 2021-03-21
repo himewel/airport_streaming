@@ -1,6 +1,8 @@
+import os
+
 from pyspark import SparkConf, SparkContext
 
-gcp_credentials = "/credentials/gcloud_credentials.json"
+gcp_credentials = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 hadoop_classpath = "/opt/gcs-connector-hadoop3-latest.jar"
 
 settings_list = [
@@ -15,7 +17,6 @@ settings_list = [
     ("spark.executor.extraClassPath", hadoop_classpath),
     ("spark.sql.shuffle.partitions", "10"),
     ("spark.sql.legacy.timeParserPolicy", "LEGACY"),
-    # ("spark.sql.parquet.mergeSchema", "true"),
 ]
 
 

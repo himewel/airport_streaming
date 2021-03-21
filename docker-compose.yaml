@@ -22,8 +22,8 @@ services:
             - 8000:8080
         volumes:
             - ./credentials:/credentials
-        environment:
-            - GOOGLE_APPLICATION_CREDENTIALS=/credentials/gcloud_credentials.json
+        env_file:
+            - .env
         command: start-master.sh
 
     spark-worker:
@@ -32,11 +32,12 @@ services:
             dockerfile: Spark.dockerfile
         depends_on:
             - spark
+        env_file:
+            - .env
         environment:
             - SPARK_MASTER_URL=spark://spark:7077
             - SPARK_WORKER_MEMORY=6G
             - SPARK_WORKER_CORES=6
-            - GOOGLE_APPLICATION_CREDENTIALS=/credentials/gcloud_credentials.json
         volumes:
             - ./credentials:/credentials
         command: bash -c "start-slave.sh $${SPARK_MASTER_URL}"
@@ -47,15 +48,16 @@ services:
             dockerfile: Airflow.dockerfile
         depends_on:
             - airflow_postgres
+        env_file:
+            - .env
         environment:
             - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow_postgres:5432/airflow
             - AIRFLOW__CORE__LOAD_EXAMPLES=False
             - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-            - AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT=google-cloud-platform://admin:admin@?extra__google_cloud_platform__key_path=%2Fcredentials%2Fgcloud_credentials.json
             - AIRFLOW_CONN_SPARK_DEFAULT=spark://admin:admin@spark%3A%2F%2Fspark:7077
         volumes:
             - ./credentials:/credentials
-            - ./app:/opt/airflow/dags/app
+            - ./dags:/opt/airflow/dags
         ports:
             - 8080:8080
         command: >
@@ -65,8 +67,8 @@ services:
                     --role Admin \
                     --username admin \
                     --password admin \
-                    --firstname Welbert \
-                    --lastname Castro \
+                    --firstname Airflow \
+                    --lastname Admin \
                     --email welberthime@gmail.com;
                 rm $${AIRFLOW_HOME}/*.pid $${AIRFLOW_HOME}/*.err;
                 airflow webserver -D & airflow scheduler"
@@ -80,13 +82,14 @@ services:
         ports:
             - 8088:8088
         volumes:
-            - ./credentials:/opt/superset/credentials
-            - ./app/superset:/opt/superset/
+            - ./credentials:/credentials
+            - ./superset:/opt/superset/
+        env_file:
+            - .env
         environment:
             - SUPERSET_HOME=/opt/superset
             - SUPERSET_CONFIG_PATH=/opt/superset/superset_config.py
             - PYTHONPATH=/opt/superset/
-            - GOOGLE_APPLICATION_CREDENTIALS=/opt/superset/credentials/gcloud_credentials.json
         command: >
             bash -c "
                 superset fab create-admin \

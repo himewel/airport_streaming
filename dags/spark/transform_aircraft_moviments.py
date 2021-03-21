@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import time
 from sys import argv
 
@@ -11,6 +12,7 @@ from pyspark.sql import functions as sf
 
 logging.basicConfig(level=logging.INFO)
 _PARTITIONS = 1
+bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
 
 raw_source = str(argv[1])
 storage_filepath = str(argv[2])
@@ -54,7 +56,7 @@ for table_name, mapping_list in key_mapping.items():
     while True:
         try:
             table_df = sql_context.readStream.schema(schema).csv(
-                f"gs://anac_data_lake/dw/{table_name}/*.csv",
+                f"gs://{bucket_name}/dw/{table_name}/*.csv",
                 schema=schema,
             )
             break
@@ -100,7 +102,7 @@ query = (
         header="true",
         format="csv",
         mode="append",
-        checkpointLocation="gs://anac_data_lake/checkpoint/fact_voos",
+        checkpointLocation=f"gs://{bucket_name}/checkpoint/fact_voos",
         failOnDataLoss="false",
     )
 )

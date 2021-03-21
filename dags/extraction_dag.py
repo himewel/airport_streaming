@@ -14,7 +14,7 @@ airflow_home = os.getenv("AIRFLOW_HOME")
 dataset_name = os.getenv("TF_VAR_DATASET_ID")
 bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
 
-project_path = f"{airflow_home}/dags/app/scripts"
+project_path = f"{airflow_home}/dags"
 tmp_path = f"{project_path}/data/tmp"
 raw_path = f"{project_path}/data/raw"
 tmp_filepath = "{tmp_path}/{year}-{month}.zip"

@@ -1,7 +1,9 @@
-# resource "google_storage_bucket" "default" {
-#   name = var.BUCKET_NAME
-# }
+# storage bucket to store processed data
+resource "google_storage_bucket" "default" {
+  name = var.BUCKET_NAME
+}
 
+# external tables mirroring storage files
 resource "google_bigquery_dataset" "dw" {
   dataset_id = var.DATASET_ID
 }
@@ -20,6 +22,7 @@ resource "google_bigquery_table" "table" {
   }
 }
 
+# views of the external tables to be acessed by superset
 resource "google_bigquery_dataset" "views" {
   dataset_id = var.VIEWS_DATASET_ID
 }

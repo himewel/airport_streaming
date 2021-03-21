@@ -6,13 +6,10 @@ from airflow.models import DAG
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
 import yaml
-from dotenv import load_dotenv
-
-load_dotenv()
 
 airflow_home = os.getenv("AIRFLOW_HOME")
 bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
-project_path = f"{airflow_home}/dags/app/scripts"
+project_path = f"{airflow_home}/dags"
 
 dim_tables = [
     "dim_digito_identificador",
@@ -34,7 +31,7 @@ with DAG(
 
     mock_dim_dates = SparkSubmitOperator(
         task_id="mock_dim_dates",
-        application=f"{project_path}/spark_jobs/mock_dim_dates.py",
+        application=f"{project_path}/spark/mock_dim_dates.py",
         total_executor_cores=1,
         executor_cores=1,
         num_executors=1,
@@ -49,7 +46,7 @@ with DAG(
 
     fact_transform = SparkSubmitOperator(
         task_id="create_fact_aircraft_moviments",
-        application=f"{project_path}/spark_jobs/transform_aircraft_moviments.py",
+        application=f"{project_path}/spark/transform_aircraft_moviments.py",
         name="create_fact_aircraft_moviments",
         total_executor_cores=1,
         executor_cores=1,
@@ -67,7 +64,7 @@ with DAG(
 
     create_dim_aerodromos = SparkSubmitOperator(
         task_id="create_dim_aerodromos",
-        application=f"{project_path}/spark_jobs/transform_dim_aerodromos.py",
+        application=f"{project_path}/spark/transform_dim_aerodromos.py",
         name="create_dim_aerodromos",
         total_executor_cores=1,
         executor_cores=1,
@@ -83,7 +80,7 @@ with DAG(
 
     for table_name in dim_tables:
         task_id = f"create_{table_name}"
-        application = f"{project_path}/spark_jobs/transform_raw_data.py"
+        application = f"{project_path}/spark/transform_raw_data.py"
 
         spark_task = SparkSubmitOperator(
             task_id=task_id,

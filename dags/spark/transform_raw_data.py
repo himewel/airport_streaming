@@ -7,6 +7,7 @@
 #   - table_name: table to process
 
 import logging
+import os
 from sys import argv
 
 from get_schema import get_allow_substrings, get_column_names, get_raw_schema
@@ -16,6 +17,7 @@ from pyspark.sql import SQLContext
 
 logging.basicConfig(level=logging.INFO)
 _PARTITIONS = 1
+bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
 
 raw_source = str(argv[1])
 storage_filepath = str(argv[2])
@@ -58,7 +60,7 @@ query = (
         f"{storage_filepath}/{table_name}/",
         header="true",
         format="csv",
-        checkpointLocation=f"gs://anac_data_lake/checkpoint/{table_name}",
+        checkpointLocation=f"gs://{bucket_name}/checkpoint/{table_name}",
         mode="complete",
         failOnDataLoss="false",
     )
