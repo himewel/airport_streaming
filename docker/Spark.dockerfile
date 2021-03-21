@@ -18,10 +18,11 @@ COPY spark_requirements.txt .
 RUN pip3 install \
     --quiet \
     --no-cache-dir \
-    --requirement requirements.txt
+    --requirement spark_requirements.txt
 
-COPY spark-3.0.1-bin-hadoop3.2.tgz .
-COPY gcs-connector-hadoop3-2.2.0-shaded.jar .
+COPY curl_installers.sh .
+
+RUN bash curl_installers.sh
 
 RUN tar -xf spark-3.0.1-bin-hadoop3.2.tgz \
     && mv spark-3.0.1-bin-hadoop3.2 ${SPARK_HOME} \

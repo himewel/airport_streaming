@@ -48,7 +48,9 @@ RUN mkdir -p /usr/share/man/man1 \
     && apt-get clean \
     && rm -rf -- /var/lib/apt/lists/*
 
-COPY Python-3.8.7.tar.xz .
+COPY curl_installers.sh .
+
+RUN bash curl_installers.sh
 
 RUN tar -xf Python-3.8.7.tar.xz \
     && cd Python-3.8.7 \
@@ -59,8 +61,6 @@ RUN tar -xf Python-3.8.7.tar.xz \
     && rm -rf Python-3.8.7.tar.xz Python-3.8.7 \
     && ln -s /usr/local/bin/python3.8 /usr/bin/python \
     && ln -s /usr/local/bin/pip3.8 /usr/bin/pip
-
-COPY mysql-apt-config_0.8.16-1_all.deb .
 
 RUN dpkg -i mysql-apt-config_0.8.16-1_all.deb \
     && apt-get update -qqq \
@@ -82,9 +82,6 @@ RUN pip install \
     --no-cache-dir \
     --requirement airflow_requirements.txt \
     --constraint ${CONSTRAINT}
-
-COPY spark-3.0.1-bin-hadoop3.2.tgz .
-COPY gcs-connector-hadoop3-2.2.0-shaded.jar .
 
 RUN tar -xf spark-3.0.1-bin-hadoop3.2.tgz \
     && rm -rf spark-3.0.1-bin-hadoop3.2.tgz \
