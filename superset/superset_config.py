@@ -28,4 +28,3 @@ WTF_CSRF_TIME_LIMIT = 60 * 60 * 24 * 365
 
 # Set this API key to enable Mapbox visualizations
 MAPBOX_API_KEY = os.getenv("MAPBOX_API_KEY")
-print(MAPBOX_API_KEY)

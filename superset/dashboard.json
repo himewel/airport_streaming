@@ -1,0 +1,617 @@
+{
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "css": ".dashboard-content {\n background-color: #2a2a2a;\n}\n\n.dashboard-header {\n  background-color: #d9d9d9;\n  border-color: #d9d9d9;\n}",
+                "dashboard_title": "ANAC",
+                "description": null,
+                "json_metadata": "{\"timed_refresh_immune_slices\": [], \"expanded_slices\": {}, \"refresh_frequency\": 0, \"default_filters\": \"{\\\"13\\\": {\\\"__time_range\\\": \\\"No filter\\\", \\\"__time_col\\\": \\\"Decolagem\\\"}}\", \"color_scheme\": null, \"filter_scopes\": {\"13\": {\"__time_range\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}, \"__time_col\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}, \"14\": {\"Companhia\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}, \"Tipo_linha\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}, \"15\": {\"Pais_origem\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}, \"Pais_destino\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}}, \"remote_id\": 1}",
+                "position_json": "{\"CHART-2qcYEaFooq\":{\"children\":[],\"id\":\"CHART-2qcYEaFooq\",\"meta\":{\"chartId\":7,\"height\":52,\"sliceName\":\"Principais destinos internacionais (assentos oferecidos)\",\"uuid\":\"7a3dcb4c-c8cc-4226-a09c-f00f4f8ed2e1\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-ZMhIF6rnp\",\"COLUMN-Ovp2hOlwYW\"],\"type\":\"CHART\"},\"CHART-4M9wP5Jdfw\":{\"children\":[],\"id\":\"CHART-4M9wP5Jdfw\",\"meta\":{\"chartId\":13,\"height\":24,\"sliceName\":\"Filtrar por data\",\"uuid\":\"fa22ca17-bfef-4ad2-ba5e-a6709077479c\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-QJImKtVvkL\",\"COLUMN-pjXSCMeFNc\"],\"type\":\"CHART\"},\"CHART-5GOSGtwpop\":{\"children\":[],\"id\":\"CHART-5GOSGtwpop\",\"meta\":{\"chartId\":10,\"height\":50,\"sliceName\":\"Mapa de movimenta\\u00e7\\u00f5es dom\\u00e9sticas\",\"uuid\":\"e2976097-6435-4eb5-88ee-3df5614bfa89\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-kNiBH3JLT\",\"COLUMN-vaJWVEWD0r\"],\"type\":\"CHART\"},\"CHART-6arJHBP0KF\":{\"children\":[],\"id\":\"CHART-6arJHBP0KF\",\"meta\":{\"chartId\":11,\"height\":50,\"sliceName\":\"Mapa de movimenta\\u00e7\\u00f5es internacionais\",\"uuid\":\"023ac19c-ca79-4533-8adf-a59755e52d3f\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-kNiBH3JLT\",\"COLUMN-wYoF4cG_t4\"],\"type\":\"CHART\"},\"CHART-9707_x9lrS\":{\"children\":[],\"id\":\"CHART-9707_x9lrS\",\"meta\":{\"chartId\":14,\"height\":24,\"sliceName\":\"Filtrar por tipo de linha\",\"uuid\":\"3f413518-1181-419f-9a78-8ab3a4812bec\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-QJImKtVvkL\",\"COLUMN-Du4ZQ-VnvW\"],\"type\":\"CHART\"},\"CHART-A62omfo7iK\":{\"children\":[],\"id\":\"CHART-A62omfo7iK\",\"meta\":{\"chartId\":9,\"height\":22,\"sliceName\":\"Cidades destino\",\"uuid\":\"b208ba81-8756-4230-88c6-8f81642171eb\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-eRzq2IC_SI\",\"COLUMN-t0nFoH36cG\"],\"type\":\"CHART\"},\"CHART-C2ZGukPCcy\":{\"children\":[],\"id\":\"CHART-C2ZGukPCcy\",\"meta\":{\"chartId\":3,\"height\":54,\"sliceName\":\"N\\u00famero de voos entre munic\\u00edpios agrupados por pa\\u00eds\",\"uuid\":\"1a60561b-c6dc-427e-a5e6-4c25861779c7\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-OAwHwO89eL\"],\"type\":\"CHART\"},\"CHART-M57XTHOniu\":{\"children\":[],\"id\":\"CHART-M57XTHOniu\",\"meta\":{\"chartId\":6,\"height\":22,\"sliceName\":\"Total de voos internacionais\",\"uuid\":\"7336cddf-8d13-4dae-bfb8-a70f4d590808\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-eRzq2IC_SI\",\"COLUMN-fC89_l9fLs\"],\"type\":\"CHART\"},\"CHART-O1waz2n4SE\":{\"children\":[],\"id\":\"CHART-O1waz2n4SE\",\"meta\":{\"chartId\":5,\"height\":22,\"sliceName\":\"Total de voos dom\\u00e9sticos\",\"uuid\":\"4bbe2d00-991e-4a5f-943c-105894d91088\",\"width\":1},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-eRzq2IC_SI\",\"COLUMN-fC89_l9fLs\"],\"type\":\"CHART\"},\"CHART-QHnMBIBOuW\":{\"children\":[],\"id\":\"CHART-QHnMBIBOuW\",\"meta\":{\"chartId\":1,\"height\":44,\"sliceName\":\"Lista de voos\",\"uuid\":\"3c659bee-a01f-4d59-97ba-f639c89e5b5b\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-OAwHwO89eL\",\"ROW-B8W0ToY-yM\",\"COLUMN-BnBn4cucuU\"],\"type\":\"CHART\"},\"CHART-aRd2Un_11w\":{\"children\":[],\"id\":\"CHART-aRd2Un_11w\",\"meta\":{\"chartId\":4,\"height\":46,\"sliceName\":\"Total de voos\",\"uuid\":\"0ffca836-163d-43cd-91c6-1c99ce0d7412\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-eRzq2IC_SI\",\"COLUMN-Vge_39NZiB\"],\"type\":\"CHART\"},\"CHART-dw6hHWieh_\":{\"children\":[],\"id\":\"CHART-dw6hHWieh_\",\"meta\":{\"chartId\":8,\"height\":22,\"sliceName\":\"\\u00daltima atualiza\\u00e7\\u00e3o\",\"uuid\":\"99ae7e83-95a5-4bd8-9503-5c83f0f5a4e2\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-eRzq2IC_SI\",\"COLUMN-t0nFoH36cG\"],\"type\":\"CHART\"},\"CHART-eAVviQx_KE\":{\"children\":[],\"id\":\"CHART-eAVviQx_KE\",\"meta\":{\"chartId\":15,\"height\":24,\"sliceName\":\"Filtrar por localiza\\u00e7\\u00e3o\",\"uuid\":\"a6223a14-0fce-4198-a58f-bbbe52987b5c\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-QJImKtVvkL\",\"COLUMN-opIG2IMlB7\"],\"type\":\"CHART\"},\"CHART-fqEA4_XnmI\":{\"children\":[],\"id\":\"CHART-fqEA4_XnmI\",\"meta\":{\"chartId\":12,\"height\":52,\"sliceName\":\"Distribui\\u00e7\\u00e3o de destinos\",\"uuid\":\"cf1dc789-7f5c-4277-aaca-96411c22b4c2\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-ZMhIF6rnp\",\"COLUMN-IRiZDwB6Uj\"],\"type\":\"CHART\"},\"COLUMN-BnBn4cucuU\":{\"children\":[\"CHART-QHnMBIBOuW\"],\"id\":\"COLUMN-BnBn4cucuU\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-OAwHwO89eL\",\"ROW-B8W0ToY-yM\"],\"type\":\"COLUMN\"},\"COLUMN-Du4ZQ-VnvW\":{\"children\":[\"CHART-9707_x9lrS\"],\"id\":\"COLUMN-Du4ZQ-VnvW\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-QJImKtVvkL\"],\"type\":\"COLUMN\"},\"COLUMN-IRiZDwB6Uj\":{\"children\":[\"CHART-fqEA4_XnmI\"],\"id\":\"COLUMN-IRiZDwB6Uj\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-ZMhIF6rnp\"],\"type\":\"COLUMN\"},\"COLUMN-OAwHwO89eL\":{\"children\":[\"CHART-C2ZGukPCcy\",\"ROW-B8W0ToY-yM\"],\"id\":\"COLUMN-OAwHwO89eL\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\"],\"type\":\"COLUMN\"},\"COLUMN-Ovp2hOlwYW\":{\"children\":[\"CHART-2qcYEaFooq\"],\"id\":\"COLUMN-Ovp2hOlwYW\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-ZMhIF6rnp\"],\"type\":\"COLUMN\"},\"COLUMN-Vge_39NZiB\":{\"children\":[\"CHART-aRd2Un_11w\"],\"id\":\"COLUMN-Vge_39NZiB\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-eRzq2IC_SI\"],\"type\":\"COLUMN\"},\"COLUMN-fC89_l9fLs\":{\"children\":[\"CHART-M57XTHOniu\",\"CHART-O1waz2n4SE\"],\"id\":\"COLUMN-fC89_l9fLs\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-eRzq2IC_SI\"],\"type\":\"COLUMN\"},\"COLUMN-opIG2IMlB7\":{\"children\":[\"CHART-eAVviQx_KE\"],\"id\":\"COLUMN-opIG2IMlB7\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-QJImKtVvkL\"],\"type\":\"COLUMN\"},\"COLUMN-pjXSCMeFNc\":{\"children\":[\"CHART-4M9wP5Jdfw\"],\"id\":\"COLUMN-pjXSCMeFNc\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-QJImKtVvkL\"],\"type\":\"COLUMN\"},\"COLUMN-t0nFoH36cG\":{\"children\":[\"CHART-dw6hHWieh_\",\"CHART-A62omfo7iK\"],\"id\":\"COLUMN-t0nFoH36cG\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\",\"ROW-eRzq2IC_SI\"],\"type\":\"COLUMN\"},\"COLUMN-vaJWVEWD0r\":{\"children\":[\"CHART-5GOSGtwpop\"],\"id\":\"COLUMN-vaJWVEWD0r\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-kNiBH3JLT\"],\"type\":\"COLUMN\"},\"COLUMN-wYoF4cG_t4\":{\"children\":[\"CHART-6arJHBP0KF\"],\"id\":\"COLUMN-wYoF4cG_t4\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-kNiBH3JLT\"],\"type\":\"COLUMN\"},\"COLUMN-wrBSXwlRiX\":{\"children\":[\"ROW-eRzq2IC_SI\",\"ROW-ZMhIF6rnp\"],\"id\":\"COLUMN-wrBSXwlRiX\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\"],\"type\":\"COLUMN\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-QJImKtVvkL\",\"ROW-4Vc245HDjY\",\"ROW-kNiBH3JLT\"],\"id\":\"GRID_ID\",\"parents\":[\"ROOT_ID\"],\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"ANAC\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-4Vc245HDjY\":{\"children\":[\"COLUMN-wrBSXwlRiX\",\"COLUMN-OAwHwO89eL\"],\"id\":\"ROW-4Vc245HDjY\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-B8W0ToY-yM\":{\"children\":[\"COLUMN-BnBn4cucuU\"],\"id\":\"ROW-B8W0ToY-yM\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-OAwHwO89eL\"],\"type\":\"ROW\"},\"ROW-QJImKtVvkL\":{\"children\":[\"COLUMN-pjXSCMeFNc\",\"COLUMN-Du4ZQ-VnvW\",\"COLUMN-opIG2IMlB7\"],\"id\":\"ROW-QJImKtVvkL\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-ZMhIF6rnp\":{\"children\":[\"COLUMN-Ovp2hOlwYW\",\"COLUMN-IRiZDwB6Uj\"],\"id\":\"ROW-ZMhIF6rnp\",\"meta\":{\"0\":\"ROOT_ID\",\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\"],\"type\":\"ROW\"},\"ROW-eRzq2IC_SI\":{\"children\":[\"COLUMN-Vge_39NZiB\",\"COLUMN-fC89_l9fLs\",\"COLUMN-t0nFoH36cG\"],\"id\":\"ROW-eRzq2IC_SI\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4Vc245HDjY\",\"COLUMN-wrBSXwlRiX\"],\"type\":\"ROW\"},\"ROW-kNiBH3JLT\":{\"children\":[\"COLUMN-wYoF4cG_t4\",\"COLUMN-vaJWVEWD0r\"],\"id\":\"ROW-kNiBH3JLT\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"}}",
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 1,
+                            "params": "{\"adhoc_filters\": [], \"align_pn\": true, \"all_columns\": [\"Companhia\", \"Aeronave\", \"Tipo_linha\", \"Decolagem\", \"Cidade_origem\", \"Pais_origem\", \"Pouso\", \"Cidade_destino\", \"Pais_destino\"], \"color_pn\": false, \"datasource\": \"7__table\", \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"granularity_sqla\": \"Decolagem\", \"groupby\": [], \"include_search\": true, \"metrics\": [\"count\"], \"order_by_cols\": [\"[\\\"Decolagem\\\", true]\", \"[\\\"Pouso\\\", true]\"], \"order_desc\": true, \"percent_metrics\": [], \"query_mode\": \"raw\", \"row_limit\": null, \"server_page_length\": 50, \"server_pagination\": true, \"show_cell_bars\": true, \"slice_id\": 1, \"table_timestamp_format\": \"%d/%m/%Y\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"table\", \"remote_id\": 1, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Lista de voos",
+                            "viz_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Query anac_dw.fact_voos relations 03/20/2021 19:30:11",
+                            "datasource_type": "table",
+                            "id": 3,
+                            "params": "{\"adhoc_filters\": [], \"color_scheme\": \"echarts4Colors\", \"datasource\": \"7__table\", \"draggable\": true, \"edgeLength\": 400, \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"friction\": 0.2, \"granularity_sqla\": \"data_decolagem\", \"gravity\": 0.3, \"layout\": \"force\", \"legendMargin\": 250, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"metric\": \"count\", \"repulsion\": 1000, \"roam\": true, \"row_limit\": 1000, \"selectedMode\": \"single\", \"showSymbolThreshold\": 5000, \"show_legend\": true, \"slice_id\": 3, \"source\": \"Cidade_origem\", \"source_category\": \"Pais_origem\", \"target\": \"Cidade_destino\", \"target_category\": \"Pais_destino\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"graph_chart\", \"remote_id\": 3, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "N\u00famero de voos entre munic\u00edpios agrupados por pa\u00eds",
+                            "viz_type": "graph_chart"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Query anac_dw.fact_voos relations 03/20/2021 19:30:11",
+                            "datasource_type": "table",
+                            "id": 4,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"7__table\", \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"granularity_sqla\": \"data_decolagem\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 4, \"subheader\": \"voos\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 4, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Total de voos",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 5,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"DOM\\u00c9STICA\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_u4l65j7jzfq_f8i3i4eyeog\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"sqlExpression\": null, \"subject\": \"Tipo_linha\"}], \"datasource\": \"7__table\", \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"granularity_sqla\": \"data_decolagem\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 5, \"subheader\": \"voos dom\\u00e9sticos\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 5, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Total de voos dom\u00e9sticos",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 6,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"INTERNACIONAL\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_7bqme0c2tvm_f46v5pb79z\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"sqlExpression\": null, \"subject\": \"Tipo_linha\"}], \"datasource\": \"7__table\", \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"granularity_sqla\": \"data_decolagem\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 6, \"subheader\": \"voos internacionais\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 6, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Total de voos internacionais",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 7,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"INTERNACIONAL\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_23tjl5nqomtj_xoe7j83orqq\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"sqlExpression\": null, \"subject\": \"Tipo_linha\"}, {\"clause\": \"WHERE\", \"comparator\": \"BRASIL\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_79o3xc73im6_fwpsdymy7gp\", \"isExtra\": false, \"isNew\": false, \"operator\": \"!=\", \"sqlExpression\": null, \"subject\": \"Pais_destino\"}], \"color_scheme\": \"bnbColors\", \"datasource\": \"7__table\", \"date_format\": \"smart_date\", \"donut\": true, \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"granularity_sqla\": \"Decolagem\", \"groupby\": [\"Pais_destino\"], \"innerRadius\": 64, \"label_line\": false, \"label_type\": \"key_value\", \"labels_outside\": true, \"legendOrientation\": \"top\", \"legendType\": \"plain\", \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": true, \"isNew\": false, \"label\": \"sum\", \"optionName\": \"metric_730m4riej94_50nm3k594ll\", \"sqlExpression\": \"CAST(SUM(Assentos_ofertados) AS INT64)\"}, \"number_format\": \"SMART_NUMBER\", \"outerRadius\": 88, \"row_limit\": 50000, \"show_labels\": true, \"show_labels_threshold\": 5, \"show_legend\": false, \"slice_id\": 7, \"sort_by_metric\": true, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"pie\", \"remote_id\": 7, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Principais destinos internacionais (assentos oferecidos)",
+                            "viz_type": "pie"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Query anac_dw.fact_voos relations 03/20/2021 19:30:11",
+                            "datasource_type": "table",
+                            "id": 8,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"7__table\", \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"granularity_sqla\": \"Pouso\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": true, \"isNew\": false, \"label\": \"data\", \"optionName\": \"metric_mpq5mbrov3m_ekr9ev027sh\", \"sqlExpression\": \"FORMAT_DATE(\\\"%Y.%m\\\", MAX(Pouso))\"}, \"subheader\": \"\\u00daltima atualiza\\u00e7\\u00e3o\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"~g\", \"remote_id\": 8, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "\u00daltima atualiza\u00e7\u00e3o",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Query anac_dw.fact_voos relations 03/20/2021 19:30:11",
+                            "datasource_type": "table",
+                            "id": 9,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"7__table\", \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"granularity_sqla\": \"Decolagem\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT_DISTINCT\", \"column\": {\"column_name\": \"Cidade_destino\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 130, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"STRING\", \"verbose_name\": \"Cidade Destino\"}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": true, \"isNew\": false, \"label\": \"data\", \"optionName\": \"metric_mpq5mbrov3m_ekr9ev027sh\", \"sqlExpression\": null}, \"slice_id\": 9, \"subheader\": \"cidades diferentes\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"~g\", \"remote_id\": 9, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Cidades destino",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 10,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"DOM\\u00c9STICA\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_0q838fji6uf_4twebs3jtwl\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"sqlExpression\": null, \"subject\": \"Tipo_linha\"}], \"autozoom\": true, \"color_picker\": {\"a\": 1, \"b\": 124, \"g\": 78, \"r\": 69}, \"color_scheme\": \"bnbColors\", \"datasource\": \"7__table\", \"dimension\": \"Companhia\", \"end_spatial\": {\"latCol\": \"Latitude_destino\", \"lonCol\": \"Longitude_destino\", \"type\": \"latlong\"}, \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"filter_nulls\": true, \"granularity_sqla\": \"Decolagem\", \"js_columns\": [], \"label_colors\": {}, \"legend_format\": \"~g\", \"legend_position\": null, \"mapbox_style\": \"mapbox://styles/mapbox/light-v9\", \"row_limit\": 10000, \"slice_id\": 10, \"start_spatial\": {\"latCol\": \"Latitude_origem\", \"lonCol\": \"Longitude_origem\", \"type\": \"latlong\"}, \"target_color_picker\": {\"a\": 1, \"b\": 137, \"g\": 193, \"r\": 90}, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viewport\": {\"altitude\": 1.5, \"bearing\": 0, \"height\": 717, \"latitude\": 8.391763723524358, \"longitude\": -31.66416988853796, \"maxPitch\": 60, \"maxZoom\": 20, \"minPitch\": 0, \"minZoom\": 0, \"pitch\": 0, \"position\": [0, 0, 0], \"width\": 1144, \"zoom\": 2.287307828534094}, \"viz_type\": \"deck_arc\", \"remote_id\": 10, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Mapa de movimenta\u00e7\u00f5es dom\u00e9sticas",
+                            "viz_type": "deck_arc"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 11,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"INTERNACIONAL\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_wrg1s22vv8_5rav6luhsm7\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"sqlExpression\": null, \"subject\": \"Tipo_linha\"}], \"autozoom\": true, \"color_picker\": {\"a\": 1, \"b\": 124, \"g\": 78, \"r\": 69}, \"color_scheme\": \"bnbColors\", \"datasource\": \"7__table\", \"dimension\": \"Companhia\", \"end_spatial\": {\"latCol\": \"Latitude_destino\", \"lonCol\": \"Longitude_destino\", \"type\": \"latlong\"}, \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"filter_nulls\": true, \"granularity_sqla\": \"Decolagem\", \"js_columns\": [], \"label_colors\": {}, \"legend_format\": \"~g\", \"legend_position\": null, \"mapbox_style\": \"mapbox://styles/mapbox/light-v9\", \"row_limit\": 10000, \"slice_id\": 11, \"start_spatial\": {\"latCol\": \"Latitude_origem\", \"lonCol\": \"Longitude_origem\", \"type\": \"latlong\"}, \"target_color_picker\": {\"a\": 1, \"b\": 137, \"g\": 193, \"r\": 90}, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viewport\": {\"altitude\": 1.5, \"bearing\": 0, \"height\": 717, \"latitude\": 6.53795589891314, \"longitude\": -0.8222470078682641, \"maxPitch\": 60, \"maxZoom\": 20, \"minPitch\": 0, \"minZoom\": 0, \"pitch\": 0, \"position\": [0, 0, 0], \"width\": 1144, \"zoom\": 1.5503225202148267}, \"viz_type\": \"deck_arc\", \"remote_id\": 11, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Mapa de movimenta\u00e7\u00f5es internacionais",
+                            "viz_type": "deck_arc"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 12,
+                            "params": "{\"adhoc_filters\": [], \"all_columns_x\": \"Longitude_destino\", \"all_columns_y\": \"Latitude_destino\", \"clustering_radius\": \"60\", \"datasource\": \"7__table\", \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"global_opacity\": 1, \"granularity_sqla\": \"Decolagem\", \"groupby\": [\"Pais_destino\", \"Latitude_destino\", \"Longitude_destino\"], \"mapbox_color\": \"rgb(220, 20, 60)\", \"mapbox_label\": [], \"mapbox_style\": \"mapbox://styles/mapbox/light-v9\", \"pandas_aggfunc\": \"sum\", \"point_radius\": \"Auto\", \"point_radius_unit\": \"Pixels\", \"render_while_dragging\": true, \"row_limit\": null, \"slice_id\": 12, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viewport_latitude\": 14.892730930919981, \"viewport_longitude\": 11.037785000032665, \"viewport_zoom\": 1.6373629466437516, \"viz_type\": \"mapbox\", \"remote_id\": 12, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Distribui\u00e7\u00e3o de destinos",
+                            "viz_type": "mapbox"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 13,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"7__table\", \"date_filter\": true, \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"filter_configs\": [], \"granularity_sqla\": \"Decolagem\", \"instant_filtering\": true, \"show_druid_time_granularity\": false, \"show_sqla_time_column\": true, \"show_sqla_time_granularity\": false, \"slice_id\": 13, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 13, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Filtrar por data",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 14,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"7__table\", \"date_filter\": false, \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"Companhia\", \"key\": \"ddy9HtoE5\", \"multiple\": true, \"searchAllOptions\": true}, {\"asc\": true, \"clearable\": true, \"column\": \"Tipo_linha\", \"key\": \"vsgoGrMop\", \"label\": \"Tipo de linha\", \"multiple\": true, \"searchAllOptions\": true}], \"granularity_sqla\": \"Decolagem\", \"instant_filtering\": true, \"slice_id\": 14, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 14, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Filtrar por tipo de linha",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "anac_views.Geo localiza\u00e7\u00e3o e companhias",
+                            "datasource_type": "table",
+                            "id": 15,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"7__table\", \"date_filter\": false, \"extra_form_data\": {\"append_form_data\": {}, \"custom_form_data\": {}, \"override_form_data\": {}}, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"Pais_origem\", \"key\": \"ddy9HtoE5\", \"label\": \"Pa\\u00eds de origem\", \"multiple\": true, \"searchAllOptions\": true}, {\"asc\": true, \"clearable\": true, \"column\": \"Pais_destino\", \"key\": \"vsgoGrMop\", \"label\": \"Pa\\u00eds de destino\", \"multiple\": true, \"searchAllOptions\": true}], \"granularity_sqla\": \"Decolagem\", \"instant_filtering\": true, \"show_sqla_time_granularity\": false, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 15, \"datasource_name\": \"Geo localiza\\u00e7\\u00e3o e companhias\", \"schema\": \"anac_views\", \"database_name\": \"anac\"}",
+                            "slice_name": "Filtrar por localiza\u00e7\u00e3o",
+                            "viz_type": "filter_box"
+                        }
+                    }
+                ],
+                "slug": null
+            }
+        }
+    ],
+    "datasources": [
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Companhia",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 122,
+                            "is_active": null,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "e3de6fa2-3f3c-40fc-8b3f-8092bc0629a2",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Aeronave",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 123,
+                            "is_active": null,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "87ef6dab-d759-4925-9f2e-47d9e7fd1448",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Tipo_linha",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 124,
+                            "is_active": null,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "1862e216-472e-4b05-b466-d07b079c8f40",
+                            "verbose_name": "Tipo Linha"
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Assentos_ofertados",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 125,
+                            "is_active": null,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "FLOAT",
+                            "uuid": "b017a895-8d33-47a0-8b43-e4e1b6ed3e01",
+                            "verbose_name": "Assentos Ofertados"
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Decolagem",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 126,
+                            "is_active": null,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "DATE",
+                            "uuid": "6e25ef6d-3359-4583-b313-038d6fd6a1e6",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Cidade_origem",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 127,
+                            "is_active": null,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "5ffea71a-6cd6-46ff-8719-6e8553d38b5f",
+                            "verbose_name": "Cidade Origem"
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Pais_origem",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 128,
+                            "is_active": null,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "0cb2d18d-4e57-466d-a0a2-c6104eb8b915",
+                            "verbose_name": "Pa\u00eds Origem"
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Pouso",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 129,
+                            "is_active": null,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "DATE",
+                            "uuid": "ae980e5c-83a4-4443-8e07-889c51427ab6",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Cidade_destino",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 130,
+                            "is_active": null,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "528f8568-b7fc-463b-bcfb-ba19b1fff6da",
+                            "verbose_name": "Cidade Destino"
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T01:39:04"
+                            },
+                            "column_name": "Pais_destino",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T00:31:29"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 131,
+                            "is_active": null,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "e88c5c5e-98f0-4bc0-abf1-bc8c99ad7c99",
+                            "verbose_name": "Pa\u00eds Destino"
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "column_name": "Latitude_origem",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 132,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "FLOAT",
+                            "uuid": "e6a7f384-1481-4193-92d9-81a2d0f736de",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "column_name": "Longitude_origem",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 133,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "FLOAT",
+                            "uuid": "872d49af-9c1b-4d2f-91d6-3bc6327e463e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "column_name": "Alpha2Code_origem",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 134,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "c7999891-6b41-4dca-94a7-8a65d21c745b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "column_name": "Latitude_destino",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 135,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "FLOAT",
+                            "uuid": "6145f75e-5a59-4596-b9fa-65b98f1388db",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "column_name": "Longitude_destino",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 136,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "FLOAT",
+                            "uuid": "6878330f-5e91-4a08-98b7-6bb5425da0e7",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "column_name": "Alpha2Code_destino",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-21T06:54:47"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 137,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 7,
+                            "type": "STRING",
+                            "uuid": "14d14859-5fe4-4f19-937f-1eed7a003573",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2021-03-21T06:54:00"
+                            },
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2021-03-20T22:30:30"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "count(*)",
+                            "extra": "{}",
+                            "id": 7,
+                            "metric_name": "count",
+                            "metric_type": null,
+                            "table_id": 7,
+                            "uuid": "3fc2829e-5055-461e-887d-a229e8849bb8",
+                            "verbose_name": null,
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 7, \"database_name\": \"anac\"}",
+                "schema": "anac_views",
+                "sql": "SELECT \n  -- fact_voos.numero_etapa,\n  dim_companhias.nome as Companhia,\n  fact_voos.descricao_modelo as Aeronave,\n  fact_voos.descricao_natureza_tipo_linha as Tipo_linha,\n  fact_voos.numero_assentos_ofertados as Assentos_ofertados,\n  dim_datas_arrive.data as Decolagem,\n  dim_aerodromos_arrive.nome_municipio as Cidade_origem,\n  dim_aerodromos_arrive.nome_pais as Pais_origem,\n  dim_aerodromos_arrive.latitude as Latitude_origem,\n  dim_aerodromos_arrive.longitude as Longitude_origem,\n  dim_aerodromos_arrive.alpha2code as Alpha2Code_origem,\n  dim_datas_take_off.data as Pouso,\n  dim_aerodromos_take_off.nome_municipio as Cidade_destino,\n  dim_aerodromos_take_off.nome_pais as Pais_destino,\n  dim_aerodromos_take_off.latitude as Latitude_destino,\n  dim_aerodromos_take_off.longitude as Longitude_destino,\n  dim_aerodromos_take_off.alpha2code as Alpha2Code_destino,\nFROM `anac_views.fact_voos` as fact_voos\nJOIN `anac_views.dim_datas` as dim_datas_arrive\n  ON fact_voos.id_arrive_date = dim_datas_arrive.id\nJOIN `anac_views.dim_datas` as dim_datas_take_off\n  ON fact_voos.id_take_off_date = dim_datas_take_off.id\nJOIN `anac_views.dim_companhias` as dim_companhias\n  ON fact_voos.id_firm = dim_companhias.id\nJOIN `anac_views.dim_aerodromos` as dim_aerodromos_arrive\n  ON fact_voos.id_arrive_airfield = dim_aerodromos_arrive.id\nJOIN `anac_views.dim_aerodromos` as dim_aerodromos_take_off\n  ON fact_voos.id_take_off_airfield = dim_aerodromos_take_off.id",
+                "table_name": "Geo localiza\u00e7\u00e3o e companhias",
+                "template_params": null
+            }
+        }
+    ]
+}
