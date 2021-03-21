@@ -73,11 +73,15 @@ RUN dpkg -i mysql-apt-config_0.8.16-1_all.deb \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
+ENV CONSTRAINT="https://raw.githubusercontent.com/apache/airflow/constraints-2.0.1/constraints-3.8.txt"
 
-RUN pip install -q --no-cache-dir \
-    --requirement requirements.txt \
-    --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.0.1/constraints-3.8.txt"
+COPY airflow_requirements.txt .
+
+RUN pip install \
+    --quiet \
+    --no-cache-dir \
+    --requirement airflow_requirements.txt \
+    --constraint ${CONSTRAINT}
 
 COPY spark-3.0.1-bin-hadoop3.2.tgz .
 COPY gcs-connector-hadoop3-2.2.0-shaded.jar .
