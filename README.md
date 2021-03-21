@@ -13,6 +13,10 @@ The **StreamingDAG** runs the Spark jobs (with PySpark) first creating a `dim_da
 - dim_datas
 - fact_voos
 
+## Dashboard
+
+![image](images/anac-2021-03-21T04-23-28.152Z.jpg)
+
 ## References
 
 - Micro data base url: https://www.gov.br/anac/pt-br/assuntos/regulados/empresas-aereas/envio-de-informacoes/microdados
