@@ -6,6 +6,10 @@ variable "DATASET_ID" {
   type = string
 }
 
+variable "VIEWS_DATASET_ID" {
+  type = string
+}
+
 variable "TABLE_NAME" {
   type = list(string)
 }
