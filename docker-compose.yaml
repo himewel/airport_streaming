@@ -40,7 +40,7 @@ services:
             - SPARK_WORKER_CORES=6
         volumes:
             - ./credentials:/credentials
-        command: bash -c "start-slave.sh $${SPARK_MASTER_URL}"
+        command: start-slave.sh $${SPARK_MASTER_URL}
 
     airflow:
         build:

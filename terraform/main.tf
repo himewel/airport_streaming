@@ -33,7 +33,7 @@ resource "google_bigquery_table" "view" {
   count = length(var.TABLE_NAME)
 
   view {
-    query = "SELECT * FROM ${var.DATASET_ID}.${var.TABLE_NAME[count.index]}"
+    query = "SELECT * FROM ${google_bigquery_dataset.dw.dataset_id}.${google_bigquery_table.table[count.index].table_id}"
     use_legacy_sql = false
   }
 }
