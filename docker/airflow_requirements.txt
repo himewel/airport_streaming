@@ -6,3 +6,4 @@ gcsfs==0.7.1
 psycopg2-binary==2.8.6
 paramiko==2.7.2
 geopy==2.1.0
+reverse-geocoder==1.5.1

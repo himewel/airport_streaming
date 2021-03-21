@@ -8,6 +8,7 @@
 import logging
 from sys import argv
 
+import reverse_geocoder as rg
 from geopy.geocoders import Nominatim
 from get_schema import get_allow_substrings, get_column_names, get_raw_schema
 from get_spark_context import get_spark_context
@@ -59,25 +60,43 @@ def get_coordinate(search, type):
         timeout=None,
     )
     location = geolocator.geocode(search)
-    logging.info(search)
-    logging.info(location)
 
     try:
         coordinate = location.raw[type]
-    except Exception as e:
-        logging.exception(e)
+    except Exception:
         coordinate = None
-
     return coordinate
 
 
+@sf.udf("string")
+def get_alpha2code(latitude, longitude):
+    try:
+        res = rg.search((latitude, longitude))
+        alpha_code = res[0]["cc"]
+    except Exception:
+        alpha_code = ""
+
+    return alpha_code
+
+
 # concat dataframes, drop duplicates and get geo coordinates
-search = sf.concat(sf.col("sigla_icao"), sf.col("nome"), sf.col("nome_municipio"))
 dim_aerodromos = (
     origem_df.union(destino_df)
     .drop_duplicates(["id"])
-    .withColumn("latitude", get_coordinate(search, sf.lit("lat")).cast("float"))
-    .withColumn("longitude", get_coordinate(search, sf.lit("lon")).cast("float"))
+    .withColumn(
+        "search",
+        sf.concat(
+            sf.col("nome_municipio"),
+            sf.lit(", "),
+            sf.col("sigla_uf"),
+            sf.lit(" - "),
+            sf.col("nome_pais"),
+        ),
+    )
+    .withColumn("latitude", get_coordinate("search", sf.lit("lat")).cast("float"))
+    .withColumn("longitude", get_coordinate("search", sf.lit("lon")).cast("float"))
+    .withColumn("alpha2code", get_alpha2code("latitude", "longitude"))
+    .drop("search")
 )
 dim_aerodromos.printSchema()
 

@@ -65,7 +65,7 @@ def normalize_columns(df=None, allow_columns=[], allow_substrings=None):
         if column_dtype == "float" or column_dtype == "int":
             fillna_dict[new_name] = 0
         elif column_dtype == "string":
-            fillna_dict[new_name] = "NÃO INFORMADO"
+            fillna_dict[new_name] = ""
 
         if column_dtype == "date":
             column_casting = sf.to_date(sf.col(column_name), "yyyy-MM-dd").alias(
