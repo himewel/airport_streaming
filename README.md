@@ -1,5 +1,11 @@
 # Extraction, streaming and visualization of ANAC open database
 
+<code><img height="20" src="https://cdn.iconscout.com/icon/free/png-512/docker-226091.png"> Docker</code> +
+<code><img height="20" src="https://avatars2.githubusercontent.com/u/33643075?s=280&v=4"> Airflow</code> +
+<code><img height="20" src="https://spark.apache.org/docs/2.1.0/img/spark-logo-hd.png"> PySpark</code> +
+<code><img height="20" src="https://www.clipartmax.com/png/middle/200-2001825_bigquery-analytics-data-warehouse-google-cloud-big-query-icon.png"> BigQuery</code> +
+<code><img height="20" src="https://apache-superset.readthedocs.io/en/0.35.1/_images/s.png"> Superset</code>
+
 ANAC (*Agência Nacional de Aviação Civil*, brazilian National Civil Aviation Agency) presents monthly data about civil flights since 2000 to now. In this project, this data is extracted and stored in a staging folder in GCS to be processed in streaming and finally visualized with a dashboard. To do it, Apache Airflow its used to make the monthly extractions and trigger Spark jobs to do the transformantions in the data. To visualize the data, we mirror the processed data also stored in GCS to BigQuery and present a dashboard with Apache Superset. Also, the GCS and BigQuery environments are provided with Terraform while the restant of techs runs locally with docker containers.
 
 About the data, the files distributed by ANAC are *zip* files with *txt* in *csv* format. In the extractions, only the year and month values the base url are changed based on monthly DAG runs. In example, to download the data from january of 2000, we have to `curl` the base url with suffix `basica2000-01.zip`. Next, the zip file is uncompressed and the *txt* is uploaded to GCS in `raw_data` folder. This procedure is realized by the **ExtractionDAG**.
@@ -25,6 +31,19 @@ It will setup the the GCS bucket and make able the run of Airflow. So, get up th
 
 ```shell
     docker-compose up -d airflow spark-worker
+```
+
+Once the DAGs have filled the tables in BigQuery, you can check the dashboard in Superset. To do it, you need to build the Superset container. To check Superset UI you can access http://localhost:8000:
+
+```shell
+    docker-compose up -d superset
+```
+
+Finally, to import the presented dashboard you can enter in superset container and run:
+
+```shell
+    superset import-dashboards -p /opt/superset/dashboard.json
+    superset import-datasources -p /opt/superset/fact_voos_geo_location.yaml
 ```
 
 ## DAGs
