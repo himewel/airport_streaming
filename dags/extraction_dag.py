@@ -6,10 +6,6 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 airflow_home = os.getenv("AIRFLOW_HOME")
 dataset_name = os.getenv("TF_VAR_DATASET_ID")
 bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
