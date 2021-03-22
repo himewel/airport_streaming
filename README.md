@@ -13,6 +13,38 @@ The **StreamingDAG** runs the Spark jobs (with PySpark) first creating a `dim_da
 - dim_datas
 - fact_voos
 
+## How to use this repo
+
+First, create a GCP service account and place in `credentials/gcloud_credentials.json` (or edit the `.env` to do it). Next, install the requirements and run:
+
+```shell
+    dotenv -f .env run terraform apply terraform
+```
+
+It will setup the the GCS bucket and make able the run of Airflow. So, get up the Spark and Airflow containers and start both ExtractionDAG and StreamingDAG. When the DAGs start to run, they will fill GCS files and BigQuery tables. You can check the Airflow UI in http://localhost:8080 and Spark UI in http://localhost:8888.
+
+```shell
+    docker-compose up -d airflow spark-worker
+```
+
+## DAGs
+
+<table>
+<tr><td>
+
+`@monthly`
+</td><td>
+
+`@once`
+</td></tr>
+<tr><td>
+
+![image](dags/ExtractionDAG.png)
+</td><td>
+
+![image](dags/StreamingDAG.png)
+</td></tr></table>
+
 ## Dashboard
 
 ![image](superset/anac-2021-03-21T23-32-23.824Z.jpg)
