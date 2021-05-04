@@ -48,9 +48,14 @@ RUN mkdir -p /usr/share/man/man1 \
     && apt-get clean \
     && rm -rf -- /var/lib/apt/lists/*
 
-COPY curl_installers.sh .
-
-RUN bash curl_installers.sh
+RUN curl -C - "https://repo1.maven.org/maven2/com/google/cloud/bigdataoss/gcs-connector/hadoop3-2.2.0/gcs-connector-hadoop3-2.2.0-shaded.jar" \
+        -o ./docker/gcs-connector-hadoop3-2.2.0-shaded.jar \
+    && curl -C - "https://downloads.apache.org/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz" \
+        -o ./docker/spark-3.0.1-bin-hadoop3.2.tgz \
+    && curl -C - "https://www.python.org/ftp/python/3.8.7/Python-3.8.7.tar.xz" \
+        -o ./docker/Python-3.8.7.tar.xz\
+    && curl -C - "https://repo.mysql.com/mysql-apt-config_0.8.16-1_all.deb" \
+        -o ./docker/mysql-apt-config_0.8.16-1_all.deb
 
 RUN tar -xf Python-3.8.7.tar.xz \
     && cd Python-3.8.7 \
@@ -75,12 +80,12 @@ RUN dpkg -i mysql-apt-config_0.8.16-1_all.deb \
 
 ENV CONSTRAINT="https://raw.githubusercontent.com/apache/airflow/constraints-2.0.1/constraints-3.8.txt"
 
-COPY airflow_requirements.txt .
+COPY requirements.txt .
 
 RUN pip install \
     --quiet \
     --no-cache-dir \
-    --requirement airflow_requirements.txt \
+    --requirement requirements.txt \
     --constraint ${CONSTRAINT}
 
 RUN tar -xf spark-3.0.1-bin-hadoop3.2.tgz \

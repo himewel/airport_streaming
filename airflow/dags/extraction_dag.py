@@ -7,8 +7,8 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 
 airflow_home = os.getenv("AIRFLOW_HOME")
-dataset_name = os.getenv("TF_VAR_DATASET_ID")
-bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
+dataset_name = os.getenv("BQ_DATASET")
+bucket_name = os.getenv("GCS_BUCKET")
 
 project_path = f"{airflow_home}/dags"
 tmp_path = f"{project_path}/data/tmp"

@@ -8,7 +8,7 @@ from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOpe
 import yaml
 
 airflow_home = os.getenv("AIRFLOW_HOME")
-bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
+bucket_name = os.getenv("GCS_BUCKET")
 project_path = f"{airflow_home}/dags"
 
 dim_tables = [

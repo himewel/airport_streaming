@@ -13,21 +13,22 @@ RUN mkdir -p /usr/share/man/man1 \
     && apt-get clean \
     && rm -rf -- /var/lib/apt/lists/*
 
-COPY spark_requirements.txt .
+RUN curl -C - "https://repo1.maven.org/maven2/com/google/cloud/bigdataoss/gcs-connector/hadoop3-2.2.0/gcs-connector-hadoop3-2.2.0-shaded.jar" \
+        -o ./docker/gcs-connector-hadoop3-2.2.0-shaded.jar \
+    && curl -C - "https://downloads.apache.org/spark/spark-3.0.1/spark-3.0.1-bin-hadoop3.2.tgz" \
+        -o ./docker/spark-3.0.1-bin-hadoop3.2.tgz
+
+COPY requirements.txt .
 
 RUN pip3 install \
     --quiet \
     --no-cache-dir \
-    --requirement spark_requirements.txt
-
-COPY curl_installers.sh .
-
-RUN bash curl_installers.sh
+    --requirement requirements.txt
 
 RUN tar -xf spark-3.0.1-bin-hadoop3.2.tgz \
-    && mv spark-3.0.1-bin-hadoop3.2 ${SPARK_HOME} \
+    && mv spark-3.0.1-bin-hadoop3.2 $SPARK_HOME \
     && rm -rf spark-3.0.1-bin-hadoop3.2.tgz \
-    && mv gcs-connector-hadoop3-2.2.0-shaded.jar ${SPARK_HOME}/jars
+    && mv gcs-connector-hadoop3-2.2.0-shaded.jar $SPARK_HOME/jars
 
 WORKDIR ${SPARK_HOME}
 

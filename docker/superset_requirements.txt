@@ -1,2 +1,0 @@
-pybigquery==0.5.0
-python-dotenv==0.15.0

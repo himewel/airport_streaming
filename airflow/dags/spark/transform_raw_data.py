@@ -17,7 +17,7 @@ from pyspark.sql import SQLContext
 
 logging.basicConfig(level=logging.INFO)
 _PARTITIONS = 1
-bucket_name = os.getenv("TF_VAR_BUCKET_NAME")
+bucket_name = os.getenv("GCS_BUCKET")
 
 raw_source = str(argv[1])
 storage_filepath = str(argv[2])
