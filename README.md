@@ -58,15 +58,15 @@ superset import-datasources -p /opt/superset/fact_voos_geo_location.yaml
 </td></tr>
 <tr><td>
 
-![image](img/ExtractionDAG.png)
+![image](./img/ExtractionDAG.png)
 </td><td>
 
-![image](img/StreamingDAG.png)
+![image](./img/StreamingDAG.png)
 </td></tr></table>
 
 ## Dashboard
 
-![image](img/dashboard.jpg)
+![image](./img/dashboard.jpg)
 
 ## References
 
