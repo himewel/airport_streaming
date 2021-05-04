@@ -1,9 +1,5 @@
 import os
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 # Superset specific config
 ROW_LIMIT = 100000
 
@@ -15,9 +11,7 @@ SUPERSET_WEBSERVER_PORT = 8088
 # Note that the connection information to connect to the datasources
 # you want to explore are managed directly in the web UI
 # SQLALCHEMY_DATABASE_URI = 'sqlite:////app/superset.db'
-SQLALCHEMY_DATABASE_URI = (
-    "postgresql+psycopg2://superset:superset@superset_postgres:5432/superset"
-)
+SQLALCHEMY_DATABASE_URI = os.getenv("SUPERSET_SQL_ALCHEMY")
 
 # Flask-WTF flag for CSRF
 WTF_CSRF_ENABLED = True
