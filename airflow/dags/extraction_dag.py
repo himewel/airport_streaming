@@ -16,7 +16,6 @@ raw_path = f"{project_path}/data/raw"
 tmp_filepath = "{tmp_path}/{year}-{month}.zip"
 raw_filepath = "{raw_path}/basica{year}-{month}.txt"
 
-# base_url = "https://www.anac.gov.br/assuntos/setor-regulado/empresas/envio-de-informacoes/microdados"
 base_url = "https://www.gov.br/anac/pt-br/assuntos/regulados/empresas-aereas/envio-de-informacoes/microdados"
 request_raw_data_fmt = "curl {base_url}/basica{year}-{month}.zip -o {tmp_filepath}"
 unzip_file_fmt = "unzip -o {tmp_filepath} -d {raw_path}"

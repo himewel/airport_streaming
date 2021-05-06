@@ -1,5 +1,9 @@
 FROM debian:buster-slim
 
+ARG USER_ID
+ARG GROUP_ID
+
+ENV AIRFLOW_VERSION "2.0.1"
 ENV AIRFLOW_HOME "/opt/airflow"
 ENV JAVA_HOME "/usr/lib/jvm/java-11-openjdk-amd64"
 ENV SPARK_HOME "/opt/spark"
@@ -78,7 +82,7 @@ RUN dpkg -i mysql-apt-config_0.8.16-1_all.deb \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-ENV CONSTRAINT="https://raw.githubusercontent.com/apache/airflow/constraints-2.0.1/constraints-3.8.txt"
+ENV CONSTRAINT="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-3.8.txt"
 
 COPY requirements.txt .
 
@@ -94,5 +98,13 @@ RUN tar -xf spark-3.0.1-bin-hadoop3.2.tgz \
     && mv gcs-connector-hadoop3-2.2.0-shaded.jar ${SPARK_HOME}/jars \
     && echo "log4j.appender.FILE.layout.conversionPattern=%m%n" >> ${SPARK_HOME}/conf/log4j.properties
 
+RUN useradd -u ${USER_ID} airflow \
+    && groupmod -g ${GROUP_ID} airflow
+
 WORKDIR ${AIRFLOW_HOME}
-CMD airflow
+
+USER airflow
+
+HEALTHCHECK CMD curl --fail https://localhost:8080 || exit 1
+ENTRYPOINT [ "/bin/bash" ]
+CMD [ "airflow" ]
