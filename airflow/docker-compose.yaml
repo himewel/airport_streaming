@@ -9,7 +9,7 @@ services:
 
     airflow:
         build:
-            context: airflow
+            context: .
             dockerfile: Dockerfile
             args:
                 - USER_ID=$USER_ID
@@ -17,6 +17,7 @@ services:
         depends_on:
             - postgres
         environment:
+            - AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT=google-cloud-platform://?extra__google_cloud_platform__project=$GOOGLE_CLOUD_PROJECT
             - AIRFLOW_CONN_SPARK_DEFAULT=spark://admin:admin@localhost:7077
             - AIRFLOW__CORE__EXECUTOR=LocalExecutor
             - AIRFLOW__CORE__LOAD_EXAMPLES=False
@@ -26,6 +27,6 @@ services:
             - GCS_BUCKET=$GCS_BUCKET
             - GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT
         volumes:
-            - ./airflow/dags:/opt/airflow/dags
+            - ./dags:/opt/airflow/dags
         ports:
             - 8080:8080
