@@ -22,6 +22,12 @@ build: ##@docker Build docker images
 up: ##@docker Start docker-compose containers
 	docker-compose up --detach
 
+.PHONY: shell
+shell: ##@docker Calls shell CLI in the Airflow container
+	docker-compose exec \
+		airflow \
+		/bin/bash
+
 .PHONY: gcloud
 gcloud: ##@gcloud Calls gcloud auth login
 	docker-compose exec \
