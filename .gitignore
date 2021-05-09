@@ -19,8 +19,11 @@ terraform.rc
 *.deb
 
 __pycache__/
+venv/
 
+scripts/
 credentials/
 *.txt
+!**/requirements.txt
 *.zip
 superset/.env
