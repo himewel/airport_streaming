@@ -61,9 +61,16 @@ make start
 make gcloud
 # enter in docker shell
 make shell
+```
 
-# check the resources apply them
-terraform apply gcp
+So, for now, just apply the storage resource. The bigquery resources can be applyable only when some data is there in the lake.
+
+```shell
+# apply bucket creation
+terraform apply gcp/storage
+
+# apply bigquery data warehouse dataset and views
+terraform apply gcp/bigquery
 ```
 
 ### Apache Airflow and Spark
