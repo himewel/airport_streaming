@@ -21,48 +21,84 @@ The **StreamingDAG** runs the Spark jobs (with PySpark) first creating a `dim_da
 
 ## How to use this repo
 
-First, create a GCP service account and place in `credentials/gcloud_credentials.json` (or edit the `.env` to do it). Next, install the requirements and run:
+First, create a virtual environment and install the dotenv to dont mess your own environment:
 
 ```shell
-dotenv -f .env run terraform apply terraform
+# it will install virtualenv with pip and create a virtual environment in ./venv
+make init
+# enter in the virtual environment
+source ./venv/bin/activate
+# install project dependencies
+pip install -r requirements.txt
 ```
 
-It will setup the the GCS bucket and make able the run of Airflow. So, get up the Spark and Airflow containers and start both ExtractionDAG and StreamingDAG. When the DAGs start to run, they will fill GCS files and BigQuery tables. You can check the Airflow UI in http://localhost:8080 and Spark UI in http://localhost:8888.
+So, the following environment variables need to be defined and propagated to the docker containers. A descriptions of they can be viewed running `make help`:
+
+- BQ_DATASET: dataset ID to upload the data in BigQuery
+- BQ_VIEWS: dataset ID to mirror the data in BigQuery
+- GOOGLE_CLOUD_PROJECT: project name with the GCS bucket and BigQuery dataset
+- GCS_BUCKET: bucket name in Cloud Storage
+
+After set the project names you can call a bash with the environment variables like this:
+
+```shell
+dotenv run /bin/bash
+```
+
+Each one of the directories `airflow`, `terraform`, `spark` and `superset` contain a compose file and a Makefile to help to manipulate the containers with different proposes. The first step is set the cloud environment with `terraform`.
+
+### Terraform
+
+Build the terraform environment to apply the resources. It will generate a GCS bucket and two BigQuery datasets: the first one to mirror the data in GCS and second, to mirror the first dataset to external access.
+
+```shell
+cd terraform
+# build the images
+make build
+# start the container
+make start
+# login into your gcloud account
+make gcloud
+# enter in docker shell
+make shell
+
+# check the resources apply them
+terraform apply gcp
+```
+
+### Apache Airflow and Spark
+
+So, get up the Spark and Airflow containers and start both ExtractionDAG and StreamingDAG. When the DAGs start to run, they will fill GCS files and BigQuery tables. You can check the Airflow UI in http://localhost:8080 and Spark UI in http://localhost:8888.
 
 ```shell
 docker-compose up -d airflow spark-worker
 ```
 
+![image](./img/ExtractionDAG.png)
+
+![image](./img/StreamingDAG.png)
+
+### Superset
+
 Once the DAGs have filled the tables in BigQuery, you can check the dashboard in Superset. To do it, you need to build the Superset container. To check Superset UI you can access http://localhost:8000:
 
 ```shell
-docker-compose up -d superset
+cd superset
+make build \
+    && make start \
+    && make gcloud
 ```
 
 Finally, to import the presented dashboard you can enter in superset container and run:
 
 ```shell
+# to enter in the container shell
+make shell
+
+# import configs
 superset import-dashboards -p /opt/superset/dashboard.json
 superset import-datasources -p /opt/superset/fact_voos_geo_location.yaml
 ```
-
-## DAGs
-
-<table>
-<tr><td>
-
-`@monthly`
-</td><td>
-
-`@once`
-</td></tr>
-<tr><td>
-
-![image](./img/ExtractionDAG.png)
-</td><td>
-
-![image](./img/StreamingDAG.png)
-</td></tr></table>
 
 ## Dashboard
 
