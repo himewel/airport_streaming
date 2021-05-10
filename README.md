@@ -75,6 +75,13 @@ terraform apply gcp/bigquery
 
 ### Apache Airflow and Spark
 
+First, create a network to connect Apache Airflow and Spark docker services:
+
+```shell
+# alias to docker network create airport_streaming
+make network
+```
+
 So, get up the Spark and Airflow containers and start both ExtractionDAG and StreamingDAG. When the DAGs start to run, they will fill GCS files and BigQuery tables. You can check the Airflow UI in http://localhost:8080 and Spark UI in http://localhost:8888.
 
 ```shell

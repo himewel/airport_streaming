@@ -8,3 +8,7 @@ help: ##@miscellaneous Show this help message
 init: ##@miscellaneous Create a venv
 	pip3 install virtualenv --quiet --no-cache-dir;
 	python3 -m venv ./venv;
+
+.PHONY: network
+network: ##@docker Create a network for Apache Airflow and Spark cluster
+	docker network create airport_streaming
