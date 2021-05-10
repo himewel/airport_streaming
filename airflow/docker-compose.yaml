@@ -1,12 +1,11 @@
 version: '3.7'
 services:
     postgres:
-        image: postgres:12-alpine
         environment:
             POSTGRES_USER: airflow
             POSTGRES_PASSWORD: airflow
             POSTGRES_DB: airflow
-
+        image: postgres:12-alpine
     airflow:
         build:
             context: .
@@ -18,7 +17,7 @@ services:
             - postgres
         environment:
             - AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT=google-cloud-platform://?extra__google_cloud_platform__project=$GOOGLE_CLOUD_PROJECT
-            - AIRFLOW_CONN_SPARK_DEFAULT=spark://admin:admin@localhost:7077
+            - AIRFLOW_CONN_SPARK_DEFAULT=spark://admin:admin@spark%3A%2F%2Fspark:7077
             - AIRFLOW__CORE__EXECUTOR=LocalExecutor
             - AIRFLOW__CORE__LOAD_EXAMPLES=False
             - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
@@ -26,7 +25,12 @@ services:
             - BQ_VIEWS=$BQ_VIEWS
             - GCS_BUCKET=$GCS_BUCKET
             - GOOGLE_CLOUD_PROJECT=$GOOGLE_CLOUD_PROJECT
-        volumes:
-            - ./dags:/opt/airflow/dags
         ports:
             - 8080:8080
+        volumes:
+            - ./dags:/opt/airflow/dags
+
+networks:
+    default:
+        external: true
+        name: airport_streaming
