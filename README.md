@@ -75,22 +75,24 @@ terraform apply gcp/bigquery
 
 ### Apache Airflow and Spark
 
-First, create a network to connect Apache Airflow and Spark docker services:
+First, create a network to connect Apache Airflow and Spark docker services. So, build the Spark and Apache Airflow containers and start both ExtractionDAG and StreamingDAG. You can check the Airflow UI in http://localhost:8080 and Spark UI in http://localhost:8888.
 
 ```shell
 # alias to docker network create airport_streaming
 make network
+
+# build spark and airflow containers
+make stream-build
+# get up the containers
+make stream-up
+# login into gcloud
+make stream-login
 ```
 
-So, get up the Spark and Airflow containers and start both ExtractionDAG and StreamingDAG. When the DAGs start to run, they will fill GCS files and BigQuery tables. You can check the Airflow UI in http://localhost:8080 and Spark UI in http://localhost:8888.
+The DAGs ExtractionDAG and StreamingDAG are described as the following images:
 
-```shell
-docker-compose up -d airflow spark-worker
-```
-
-![image](./img/ExtractionDAG.png)
-
-![image](./img/StreamingDAG.png)
+<p align="center"><img src="./img/ExtractionDAG.png"></p>
+<p align="center"><img src="./img/StreamingDAG.png"></p>
 
 ### Superset
 
@@ -98,9 +100,9 @@ Once the DAGs have filled the tables in BigQuery, you can check the dashboard in
 
 ```shell
 cd superset
-make build \
-    && make start \
-    && make gcloud
+make build
+make start
+make gcloud
 ```
 
 Finally, to import the presented dashboard you can enter in superset container and run:
@@ -114,9 +116,7 @@ superset import-dashboards -p /opt/superset/dashboard.json
 superset import-datasources -p /opt/superset/fact_voos_geo_location.yaml
 ```
 
-## Dashboard
-
-![image](./img/dashboard.jpg)
+![Dashboard](./img/dashboard.jpg)
 
 ## References
 
