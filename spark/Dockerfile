@@ -30,6 +30,10 @@ RUN tar -xf spark-3.0.2-bin-hadoop3.2.tgz \
     && mv gcs-connector-hadoop3-2.2.0-shaded.jar ${SPARK_HOME}/jars \
     && echo "log4j.appender.FILE.layout.conversionPattern=%m%n" >> ${SPARK_HOME}/conf/log4j.properties
 
+RUN useradd -m airflow
+
+USER airflow
+
 COPY requirements.txt .
 
 RUN pip3 install \

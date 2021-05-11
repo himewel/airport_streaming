@@ -2,8 +2,12 @@ import os
 
 from pyspark import SparkConf, SparkContext
 
-gcp_credentials = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-hadoop_classpath = "/opt/gcs-connector-hadoop3-latest.jar"
+home = os.getenv("HOME")
+default_credentials = f"{home}/.config/gcloud/application_default_credentials.json"
+gcp_credentials = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", default_credentials)
+
+spark_home = os.getenv("SPARK_HOME")
+hadoop_classpath = f"{spark_home}/jars/gcs-connector-hadoop3-2.2.0-shaded.jar"
 
 settings_list = [
     ("fs.gs.impl", "com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem"),
