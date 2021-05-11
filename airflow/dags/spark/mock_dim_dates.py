@@ -25,7 +25,7 @@ spark_context = get_spark_context()
 sql_context = SQLContext.getOrCreate(spark_context)
 
 try:
-    old_df = sql_context.read.csv(storage_filepath)
+    old_df = sql_context.read.csv(f"{storage_filepath}/dim_datas/")
     logging.info("dim_datas is already there")
     quit()
 except Exception:

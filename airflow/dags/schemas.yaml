@@ -5,13 +5,13 @@ dim_aerodromos:
 dim_digito_identificador:
     id_digito_identificador: id_di:id
 
-dim_companhias:
+dim_empresas:
     id_companhia: id_empresa:id
 
 dim_aeronaves:
     id_aeronave: id_equipamento:id
 
-dim_dates:
+dim_datas:
     id_data_decolagem: data_partida_real:data
     id_data_pouso: data_chegada_real:data
     id_data_referencia: data_referencia:data

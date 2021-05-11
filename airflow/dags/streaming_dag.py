@@ -37,8 +37,8 @@ with DAG(
         num_executors=1,
         executor_memory="500M",
         application_args=[
-            f"gs://{bucket_name}/raw_data/",
-            f"gs://{bucket_name}/dw/",
+            f"gs://{bucket_name}/raw_data",
+            f"gs://{bucket_name}/dw",
             "2000-01-01",
             "2020-12-31",
         ],
